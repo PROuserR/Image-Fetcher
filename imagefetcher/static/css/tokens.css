@@ -1,0 +1,32 @@
+/* Design tokens: colours, spacing, radii. Light by default, dark via OS setting or [data-theme]. */
+:root {
+  --bg: #f6f7fb; --surface: #ffffff; --surface-2: #eef0f7; --text: #151826; --muted: #667085;
+  --border: #e3e6ef; --accent: #5b5bf0; --accent-2: #8b5cf6; --accent-soft: rgba(91, 91, 240, .12);
+  --danger: #d92d20; --checker-a: #e7e9f2; --checker-b: #f7f8fc;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, .08);
+  --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .06);
+
+  --radius: 16px; --radius-sm: 10px; --gap: 16px; --touch: 44px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --safe-top: env(safe-area-inset-top, 0px); --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px); --safe-left: env(safe-area-inset-left, 0px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d0f17; --surface: #161926; --surface-2: #1e2233; --text: #eceef7; --muted: #9aa3b8;
+    --border: #2a2f45; --accent: #7c7cff; --accent-2: #a78bfa; --accent-soft: rgba(124, 124, 255, .16);
+    --danger: #ff6b5e; --checker-a: #1c2032; --checker-b: #232840;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d0f17; --surface: #161926; --surface-2: #1e2233; --text: #eceef7; --muted: #9aa3b8;
+  --border: #2a2f45; --accent: #7c7cff; --accent-2: #a78bfa; --accent-soft: rgba(124, 124, 255, .16);
+  --danger: #ff6b5e; --checker-a: #1c2032; --checker-b: #232840;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}

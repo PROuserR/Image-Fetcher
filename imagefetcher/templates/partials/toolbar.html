@@ -1,0 +1,41 @@
+<section id="toolbar" class="toolbar" hidden aria-label="Filters">
+  <div class="tb-main">
+    <input id="search" class="control" type="search" placeholder="Filter by name or URL" aria-label="Filter images">
+    <span id="count" class="count"></span>
+  </div>
+
+  <details id="filter-panel" class="filter-panel" open>
+    <summary class="btn btn-ghost btn-sm">Filters, sort &amp; view</summary>
+    <div class="fp-body">
+      <label class="field">
+        <span class="field-label">Minimum size</span>
+        <select id="min-size" class="control">
+          <option value="0">Any size</option>
+          <option value="100">Larger than 100px</option>
+          <option value="300">Larger than 300px</option>
+          <option value="600">Larger than 600px</option>
+          <option value="1000">Larger than 1000px</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">Sort by</span>
+        <select id="sort" class="control">
+          <option value="page">Page order</option>
+          <option value="size">Largest first</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </label>
+      <div class="field">
+        <span class="field-label" id="density-label">Thumbnail size</span>
+        <div id="density" class="seg" role="group" aria-labelledby="density-label">
+          <button type="button" data-density="compact" aria-pressed="false" aria-label="Small thumbnails">S</button>
+          <button type="button" data-density="comfortable" aria-pressed="true" aria-label="Medium thumbnails">M</button>
+          <button type="button" data-density="large" aria-pressed="false" aria-label="Large thumbnails">L</button>
+        </div>
+      </div>
+      <div id="chips" class="chips" role="group" aria-label="File types"></div>
+    </div>
+  </details>
+
+  <div id="page-title" class="page-title"></div>
+</section>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block body %}
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.8"/><path d="m21 15-5-5L5 21"/></svg>
+        </span>
+        <span>Image Fetcher</span>
+      </div>
+      <button id="theme" class="btn-icon" type="button" aria-label="Toggle dark mode"></button>
+    </div>
+
+    <h1>Grab every image from any webpage</h1>
+    <p class="sub">Paste a link, preview what's there, pick the ones you want, and download them together as a ZIP.</p>
+
+    <form id="scan-form" class="search" autocomplete="off">
+      <span class="search-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      </span>
+      <input id="url" type="text" inputmode="url" enterkeyhint="go" autocapitalize="off" autocorrect="off"
+             placeholder="https://example.com/gallery" aria-label="Webpage URL" spellcheck="false" autofocus required>
+      <button id="scan-btn" class="btn btn-primary" type="submit">
+        <span class="spinner" hidden></span><span class="label">Fetch images</span>
+      </button>
+    </form>
+    <label class="opt"><input type="checkbox" id="extras" checked><span>Include social (OG) images, icons &amp; CSS backgrounds</span></label>
+  </div>
+</header>
+
+<main class="wrap">
+  {% include "partials/toolbar.html" %}
+  <section id="status" class="status" aria-live="polite"></section>
+  <div id="grid" class="grid" data-density="comfortable"></div>
+  <p class="foot">Images are fetched on the fly and never stored &middot; only download images you have the right to use</p>
+</main>
+
+<div id="actionbar" class="actionbar" hidden>
+  <div class="sel"><span id="sel-count">0</span> selected</div>
+  <button id="select-all" class="btn btn-ghost btn-sm" type="button">Select shown</button>
+  <button id="select-none" class="btn btn-ghost btn-sm" type="button">Clear</button>
+  <button id="zip-btn" class="btn btn-primary" type="button" disabled>
+    <span class="spinner" hidden></span><span class="label">Download ZIP</span>
+  </button>
+</div>
+
+{% include "partials/lightbox.html" %}
+<div id="toasts" class="toasts" aria-live="polite"></div>
+{% endblock %}
